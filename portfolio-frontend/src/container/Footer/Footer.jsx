@@ -78,6 +78,7 @@ const Footer = () => {
               placeholder="Your Name"
               name="username"
               value={username}
+              required
               onChange={handleChangeInput}
             />
           </div>
@@ -88,6 +89,7 @@ const Footer = () => {
               placeholder="Your Email"
               name="email"
               value={email}
+              required
               onChange={handleChangeInput}
             />
           </div>
@@ -96,6 +98,7 @@ const Footer = () => {
               className="p-text"
               placeholder="Your Message"
               value={message}
+              required
               name="message"
               onChange={handleChangeInput}
             />
