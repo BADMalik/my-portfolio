@@ -23,7 +23,8 @@ const Footer = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setLoading(true);
 
     const contact = {
@@ -71,41 +72,44 @@ const Footer = () => {
       </div>
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
-          <div className="app__flex">
-            <input
-              className="p-text"
-              type="text"
-              placeholder="Your Name"
-              name="username"
-              value={username}
-              required
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div className="app__flex">
-            <input
-              className="p-text"
-              type="email"
-              placeholder="Your Email"
-              name="email"
-              value={email}
-              required
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div>
-            <textarea
-              className="p-text"
-              placeholder="Your Message"
-              value={message}
-              required
-              name="message"
-              onChange={handleChangeInput}
-            />
-          </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
-            {!loading ? "Send Message" : "Sending..."}
-          </button>
+          <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+            <div className="app__flex">
+              <input
+                className="p-text"
+                type="text"
+                placeholder="Your Name"
+                name="username"
+                value={username}
+                required
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="app__flex">
+              <input
+                className="p-text"
+                type="email"
+                placeholder="Your Email"
+                name="email"
+                value={email}
+                required
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div>
+              <textarea
+                className="p-text"
+                placeholder="Your Message"
+                value={message}
+                required
+                name="message"
+                onChange={handleChangeInput}
+              />
+            </div>
+
+            <button type="submit" className="p-text">
+              {!loading ? "Send Message" : "Sending..."}
+            </button>
+          </form>
         </div>
       ) : (
         <div>
